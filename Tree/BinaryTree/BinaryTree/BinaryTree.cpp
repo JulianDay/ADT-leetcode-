@@ -37,7 +37,21 @@ int main()
 	levelOrder(cpi);
 	cout << endl;
 	
+	cout << "cpi的最大深度是:" << MaxDepthRecursive(cpi) << endl;
+	cout << "cpi的最大深度是:" << MaxDepth(cpi) << endl;
+
+	cout << "b的最大深度是:" << MaxDepthRecursive(b) << endl;
+	cout << "b的最大深度是:" << MaxDepth(b) << endl;
+
+	cout << "cpi的最小深度是:" << MinDepthRecursive(cpi) << endl;
+	cout << "cpi的最小深度是:" << MinDepth(cpi) << endl;
+
+	cout << "b的最小深度是:" << MinDepthRecursive(b) << endl;
+	cout << "b的最小深度是:" << MinDepth(b) << endl;
+
 	cout << "cpi是否搜索树:" << isBST(cpi)<< endl;
 	cout << "b是否搜索树:" << isBST(b) << endl;
 
+	cout << "cpi是否平衡树:" << IsAVL(cpi) << endl;
+	cout << "b是否平衡树:" << IsAVL(b) << endl;
 }

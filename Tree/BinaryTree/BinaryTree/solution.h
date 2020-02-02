@@ -113,7 +113,7 @@ void InOrderTraversal(BinaryNode<T> * t, vector<T>& out)
 		return;
 	}
 	stack<BinaryNode<T> *> st;
-	
+
 	while (!st.empty() || t != nullptr)
 	{
 		if (t != nullptr)//把左子树压进栈
@@ -187,6 +187,7 @@ void levelOrder(BinaryNode<T> * t)
 		cout << "[";
 		while (size > 0)
 		{
+			size--;
 			BinaryNode<T>* current = queueNode.front(); // 返回队首，结束时删除
 			if (current == nullptr)
 			{
@@ -194,7 +195,7 @@ void levelOrder(BinaryNode<T> * t)
 				continue;
 			}
 			Visit(current);
-			size--;
+
 			//把当前左右子树入队
 			if (current->left != nullptr)
 			{
@@ -222,7 +223,7 @@ bool isBST(BinaryNode<T> * t)
 	//error C2440: “初始化”: 无法从“isBST::<lambda_21a1fa226ed1ac50bd3816eafa0d0ade>”转换为“void (__cdecl *)(BinaryNode<int> *)”
 	vector<T> nodeVector;
 	auto a_lambda_func = [&nodeVector](BinaryNode<T> * t) {
-		nodeVector.push_back(t->element); 
+		nodeVector.push_back(t->element);
 	};
 	void(*func)(BinaryNode<T> *t) = a_lambda_func;
 	InOrderRecursive(t, func);
@@ -238,12 +239,148 @@ bool isBST(BinaryNode<T> * t)
 	{
 		return true;
 	}
-	for (int i=1; i < size;i++)
+	for (int i = 1; i < size;i++)
 	{
-		if (nodeVector[i] < nodeVector[i-1])
+		if (nodeVector[i] < nodeVector[i - 1])
 		{
 			return false;
 		}
 	}
 	return true;
+}
+
+//LeetCode 104:
+//二叉树的最大深度(为根节点到最远叶子节点的最长路径上的节点数)
+//递归版
+template <typename T>
+int MaxDepthRecursive(BinaryNode<T> *t)
+{
+	if (t == nullptr)
+	{
+		return 0;
+	}
+	return (max(MaxDepthRecursive(t->left), MaxDepthRecursive(t->right)) + 1);
+}
+//非递归，层次遍历的思想到最后一层
+template <typename T>
+int MaxDepth(BinaryNode<T> *t)
+{
+	if (t == nullptr)
+	{
+		return 0;
+	}
+	queue<BinaryNode<T> *> queueNode;
+	queueNode.push(t);
+	int depth = 0;
+	while (!queueNode.empty())
+	{
+		int size = queueNode.size();
+		while (size)
+		{
+			size--;
+			BinaryNode<T>* current = queueNode.front();
+			if (current == nullptr)
+			{
+				queueNode.pop();
+				continue;
+			}
+			//把当前左右子树入队
+			if (current->left != nullptr)
+			{
+				queueNode.push(current->left);
+			}
+			if (current->right != nullptr)
+			{
+				queueNode.push(current->right);
+			}
+			queueNode.pop();
+		}
+		depth++;
+	}
+	return depth;
+}
+
+//LeetCode 111
+//二叉树的最小深度(最小深度是从根节点到最近叶子节点的最短路径上的节点数量)
+//递归版
+template <typename T>
+int MinDepthRecursive(BinaryNode<T> *t)
+{
+	if (t == nullptr)
+	{
+		return 0;
+	}
+	//注意叶节点是没有左子树也没有右子树的节点
+	if (t->left == nullptr)
+	{
+		return MinDepthRecursive(t->right) + 1;
+	}
+	if (t->right == nullptr)
+	{
+		return MinDepthRecursive(t->left) + 1;
+	}
+	return (min(MinDepthRecursive(t->left), MinDepthRecursive(t->right)) + 1);
+}
+
+//非递归，层次遍历的思想到第一个叶节点
+template <typename T>
+int MinDepth(BinaryNode<T> *t)
+{
+	if (t == nullptr)
+	{
+		return 0;
+	}
+	queue<BinaryNode<T> *> queueNode;
+	queueNode.push(t);
+	int depth = 0;
+	while (!queueNode.empty())
+	{
+		int size = queueNode.size();
+		while (size)
+		{
+			size--;
+			BinaryNode<T>* current = queueNode.front();
+			if (current == nullptr)
+			{
+				queueNode.pop();
+				continue;
+			}
+			//找到第一个叶节点
+			if (current->left == nullptr && current->right == nullptr)
+			{
+				return depth + 1;
+			}
+			//把当前左右子树入队
+			if (current->left != nullptr)
+			{
+				queueNode.push(current->left);
+			}
+			if (current->right != nullptr)
+			{
+				queueNode.push(current->right);
+			}
+			queueNode.pop();
+		}
+		depth++;
+	}
+	return depth;
+}
+
+//LeetCode 110
+//是否是平衡树(一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1)
+//得到左右子树的最大高度进行比较
+template <typename T>
+bool IsAVL(BinaryNode<T> *t)
+{
+	if (t == nullptr)
+	{
+		return false;
+	}
+	int leftHeight = MaxDepth(t->left);
+	int rightHeight = MaxDepth(t->right);
+	if (abs(leftHeight - rightHeight) <= 1)
+	{
+		return true;
+	}
+	return false;
 }
