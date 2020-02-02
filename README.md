@@ -13,5 +13,7 @@
 		4.LeetCode 98:验证二叉树是否是搜索树  
 		5.LeetCode 102:层次遍历按且按层次输出  
 		6.LeetCode 105:根据前序遍历和中序遍历来创建树  
-		7.LeetCode 104:二叉树的最小深度  
-		8.LeetCode 111:二叉树的最大深度
+		7.LeetCode 104:二叉树的最大深度  
+		8.LeetCode 111:二叉树的最小深度
+		9.LeetCode 110:二叉树是否是平衡二叉树
+		10.LeetCode 108:有序数组转换为二叉搜索树

@@ -54,4 +54,13 @@ int main()
 
 	cout << "cpi是否平衡树:" << IsAVL(cpi) << endl;
 	cout << "b是否平衡树:" << IsAVL(b) << endl;
+
+	cout << "根据有序数组创建平衡搜索树" << endl;
+	vector<int> orderArray{1,5,27,39,43,54,66,71,88,90,100,111,222};
+	BinaryNode<int>* cbo = CreateAVLBSTByOrderArray(orderArray);
+	cout << "cbo是否搜索树:" << isBST(cbo) << endl;
+	cout << "cbo是否平衡树:" << IsAVL(cbo) << endl;
+	cout << "cbo层次遍历:" << endl;
+	levelOrder(cbo);
+	cout << endl;
 }

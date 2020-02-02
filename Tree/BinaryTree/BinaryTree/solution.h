@@ -62,6 +62,27 @@ void PreOrderRecursive(BinaryNode<T> * t, void(*func)(BinaryNode<T> *t))
 		PreOrderRecursive(t->right, func);
 	}
 }
+
+template <typename T>
+BinaryNode<T>* CreateAVLBSTByOrderArrayHelp(const vector<T>& order,int start, int end)
+{
+	if (start > end) 
+		return nullptr;
+	int mid = (end - start) / 2 + start;
+	BinaryNode<T>* midNode = new BinaryNode<T>(order[mid]);
+	midNode->left = CreateAVLBSTByOrderArrayHelp(order, start, mid - 1);
+	midNode->right = CreateAVLBSTByOrderArrayHelp(order, mid + 1, end);
+	return midNode;
+}
+//LeetCode 108
+//将有序数组转换为二叉搜索平衡树
+//思路:平衡树就要求从中间节点做为根节点,左区域为左子树,右区域为右子树
+template <typename T>
+BinaryNode<T>* CreateAVLBSTByOrderArray(const vector<T>& order)
+{
+	return CreateAVLBSTByOrderArrayHelp(order, 0, order.size() - 1);
+}
+
 // 前序遍历(非递归)
 // 把左子树压入栈，直到null,出栈,遍历节点右子树
 template <typename T>
@@ -384,3 +405,4 @@ bool IsAVL(BinaryNode<T> *t)
 	}
 	return false;
 }
+
