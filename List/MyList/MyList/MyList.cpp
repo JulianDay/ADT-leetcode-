@@ -4,6 +4,8 @@
 #include "pch.h"
 #include <iostream>
 #include "MyList.h"
+#include "MyStack.h"
+#include "solution.h"
 template<class T>
 void PrintList(const MyList<T>& l)
 {
@@ -20,6 +22,8 @@ int main()
 	l.push_back(2);
 	l.push_front(1);
 	l.push_back(3);
+	l.push_back(4);
+	l.push_back(5);
 	PrintList(l);
 
 	MyList<int> l2(l);
@@ -30,6 +34,24 @@ int main()
 	l3 = l2;
 	l3.pop_back();
 	PrintList(l3);
+	removeNodeFromRight(l3, 4);
+	PrintList(l3);
+	//rotateRight(l3,2);
+
+	MyStack<int> s1;
+	s1.push(1);
+	s1.push(2);
+	s1.push(3);
+	std::cout << s1.top() <<std::endl;
+
+	MyStack<int> s2(s1);
+	s2.pop();
+	std::cout << s2.top() << std::endl;
+
+	MyStack<int> s3;
+	s3 = s2;
+	s3.pop();
+	std::cout << s3.top() << std::endl;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

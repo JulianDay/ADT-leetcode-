@@ -23,13 +23,23 @@ public:
 			return *this;
 		}
 
+		const_iterator & operator--()
+		{
+			this->current = this->current->prev;
+			return *this;
+		}
 		const_iterator operator++(int)
 		{
 			const_iterator old = (*this);
 			++(*this);
 			return old;
 		}
-
+		const_iterator operator--(int)
+		{
+			const_iterator old = (*this);
+			--(*this);
+			return old;
+		}
 		bool operator==(const const_iterator &rhs) const
 		{
 			return (current == rhs.current);
@@ -77,6 +87,13 @@ public:
 		{
 			iterator old = *this;
 			++(*this);
+			return old;
+		}
+
+		iterator operator-- (int)
+		{
+			iterator old = *this;
+			--(*this);
 			return old;
 		}
 	protected:

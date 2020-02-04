@@ -152,7 +152,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MyList.h" />
+    <ClInclude Include="MyStack.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="solution.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyList.cpp" />
