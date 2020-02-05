@@ -52,6 +52,32 @@ int main()
 	s3 = s2;
 	s3.pop();
 	std::cout << s3.top() << std::endl;
+
+	MyList<int> ll1;
+	ll1.push_front(3);
+	ll1.push_front(4);
+	ll1.push_front(2);
+
+	MyList<int> ll2;
+	ll2.push_front(4);
+	ll2.push_front(6);
+	ll2.push_front(5);
+
+	MyList<int> llr1;
+	addTwoNum(ll1, ll2, llr1);
+	PrintList(llr1);
+	ll1.clear();
+	ll2.clear();
+	llr1.clear();
+	ll1.push_front(3);
+	ll1.push_front(4);
+	ll1.push_front(2);
+	ll1.push_front(7);
+	ll2.push_front(4);
+	ll2.push_front(6);
+	ll2.push_front(5);
+	addTwoNum2(ll1, ll2, llr1);
+	PrintList(llr1);
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
