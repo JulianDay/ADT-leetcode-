@@ -155,6 +155,7 @@
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="solution.h" />
+    <ClInclude Include="solution_leetcode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyList.cpp" />

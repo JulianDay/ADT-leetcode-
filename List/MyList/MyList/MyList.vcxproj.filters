@@ -27,6 +27,9 @@
     <ClInclude Include="MyStack.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="solution_leetcode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

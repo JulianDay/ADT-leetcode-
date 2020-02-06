@@ -6,6 +6,7 @@
 #include "MyList.h"
 #include "MyStack.h"
 #include "solution.h"
+#include "solution_leetcode.h"
 template<class T>
 void PrintList(const MyList<T>& l)
 {
@@ -14,8 +15,20 @@ void PrintList(const MyList<T>& l)
 	{
 		std::cout << *iter << "	";
 	}
-	std::cout <<"]"<< std::endl;
+	std::cout << "]" << std::endl;
 }
+
+void PrintList(ListNode* head)
+{
+	std::cout << "[";
+	while (head != nullptr)
+	{
+		std::cout << head->val << "	";
+		head = head->next;
+	}
+	std::cout << "]" << std::endl;
+}
+
 int main()
 {
 	MyList<int> l;
@@ -42,7 +55,7 @@ int main()
 	s1.push(1);
 	s1.push(2);
 	s1.push(3);
-	std::cout << s1.top() <<std::endl;
+	std::cout << s1.top() << std::endl;
 
 	MyStack<int> s2(s1);
 	s2.pop();
@@ -78,6 +91,21 @@ int main()
 	ll2.push_front(5);
 	addTwoNum2(ll1, ll2, llr1);
 	PrintList(llr1);
+
+	Solution solution;
+	std::vector<int> vl1{ 1, 2, 3 };
+	ListNode* so_l1 = solution.createList(vl1);
+	std::vector<int> vl2{ 1, 3, 4 };
+	ListNode* so_l2 = solution.createList(vl2);
+	ListNode* so_ret = solution.mergeTwoLists(so_l1, so_l2);
+	PrintList(so_ret);
+	std::vector<int> vl3{ 5, 6, 10 };
+	ListNode* so_l3 = solution.createList(vl3);
+	std::vector<int> vl4{ 7, 9, 12 };
+	ListNode* so_l4 = solution.createList(vl4);
+	std::vector<ListNode*> so_list{ so_ret,so_l3,so_l4 };
+	ListNode* so_ret2 = solution.mergeKLists(so_list);
+	PrintList(so_ret2);
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
