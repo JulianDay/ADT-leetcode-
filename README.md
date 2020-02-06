@@ -14,15 +14,15 @@
 		5.LeetCode 102:层次遍历按且按层次输出  
 		6.LeetCode 105:根据前序遍历和中序遍历来创建树  
 		7.LeetCode 104:二叉树的最大深度  
-		8.LeetCode 111:二叉树的最小深度
-		9.LeetCode 110:二叉树是否是平衡二叉树
-		10.LeetCode 108:有序数组转换为二叉搜索树
---List(双向链表)/
-		1.栈的实现
-		2.LeetCode 19: 删除链表的倒数第N个节点
-		3.LeetCode 61:旋转链表
-		4.LeetCode 2:两数相加
-		5.LeetCode 445:两数相加
-		6.LeetCode 21:合并两个有序链表
-		7.LeetCode 23:合并K个排序链表
---Vector(数值表)/
+		8.LeetCode 111:二叉树的最小深度  
+		9.LeetCode 110:二叉树是否是平衡二叉树  
+		10.LeetCode 108:有序数组转换为二叉搜索树  
+--List(双向链表)/  
+		1.栈的实现  
+		2.LeetCode 19: 删除链表的倒数第N个节点  
+		3.LeetCode 61:旋转链表  
+		4.LeetCode 2:两数相加  
+		5.LeetCode 445:两数相加  
+		6.LeetCode 21:合并两个有序链表  
+		7.LeetCode 23:合并K个排序链表  
+--Vector(数值表)/  
