@@ -23,4 +23,6 @@
 		3.LeetCode 61:旋转链表
 		4.LeetCode 2:两数相加
 		5.LeetCode 445:两数相加
+		6.LeetCode 21:合并两个有序链表
+		7.LeetCode 23:合并K个排序链表
 --Vector(数值表)/
