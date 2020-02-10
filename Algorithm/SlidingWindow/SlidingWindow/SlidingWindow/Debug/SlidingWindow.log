@@ -1,0 +1,3 @@
+﻿  SlidingWindow.cpp
+e:\mycode\adt\adt-leetcode-\algorithm\slidingwindow\slidingwindow\slidingwindow\solution.h(25): warning C4018: “<”: 有符号/无符号不匹配
+  SlidingWindow.vcxproj -> E:\mycode\ADT\ADT-leetcode-\Algorithm\SlidingWindow\SlidingWindow\Debug\SlidingWindow.exe
