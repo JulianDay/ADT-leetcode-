@@ -26,3 +26,11 @@
 		6.LeetCode 21:合并两个有序链表  
 		7.LeetCode 23:合并K个排序链表  
 --Vector(数值表)/  
+--Algorithm(算法)/  
+		SlidingWindow(滑动窗口)/  
+			3:无重复字符的最长子串  
+			325:Maximum Size Subarray Sum Equals k  
+		TwoPoints(双指针)/  
+			LeetCode 11. 盛最多水的容器  
+			LeetCode 42. 接雨水  
+			LeetCode 11. 三数之和  

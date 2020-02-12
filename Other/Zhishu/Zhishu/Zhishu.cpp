@@ -7,7 +7,7 @@ using namespace std;
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
 bool IsZS(int num)
 {
-	for (int i = 2;i < num / 2;i++)
+	for (int i = 2;i < sqrt(num);i++)// num/2
 	{
 		if (num%i == 0)
 		{
