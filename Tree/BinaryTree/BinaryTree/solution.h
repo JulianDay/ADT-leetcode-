@@ -406,3 +406,83 @@ bool IsAVL(BinaryNode<T> *t)
 	return false;
 }
 
+//LeetCode 112. 路径总和
+//深度优先搜索算法（把一个节点压入栈，while(栈不为空){出栈，把孩子压入栈}）
+template <typename T>
+bool hasPathSum(BinaryNode<T>* root, T sum) {
+	if (root == nullptr)
+	{
+		return false;
+	}
+	stack<BinaryNode<T>*> nodeStack;
+	stack<T> nodeSum;
+	nodeStack.push(root);
+	nodeSum.push(sum - root->element);
+	BinaryNode<T>* node;
+	T cur_sum;
+	while (!nodeStack.empty())
+	{
+		node = nodeStack.top();
+		cur_sum = nodeSum.top();
+
+		if (node->left == nullptr && node->right == nullptr && cur_sum == 0)
+		{
+			return true;
+		}
+		nodeStack.pop();
+		nodeSum.pop();
+		if (node->left != nullptr)
+		{
+			nodeStack.push(node->left);
+			nodeSum.push(cur_sum - node->left->element);
+		}
+
+		if (node->right != nullptr)
+		{
+			nodeStack.push(node->right);
+			nodeSum.push(cur_sum - node->right->element);
+		}
+	}
+	return false;
+}
+
+//LeetCode 113. 路径总和
+//深度优先搜索算法（把一个节点压入栈，while(栈不为空){出栈，把孩子压入栈}）
+template <typename T>
+vector<vector<int>> hasPathSum2(BinaryNode<T>* root, T sum) {
+	vector<vector<int>> result;
+	if (root == nullptr)
+	{
+		return result;
+	}
+	stack<BinaryNode<T>*> nodeStack;
+	stack<T> nodeSum;
+	nodeStack.push(root);
+	nodeSum.push(sum - root->element);
+	BinaryNode<T>* node;
+	T cur_sum;
+	while (!nodeStack.empty())
+	{
+		node = nodeStack.top();
+		cur_sum = nodeSum.top();
+
+		if (node->left == nullptr && node->right == nullptr && cur_sum == 0)
+		{
+			return true;
+		}
+		nodeStack.pop();
+		nodeSum.pop();
+		if (node->left != nullptr)
+		{
+			nodeStack.push(node->left);
+			nodeSum.push(cur_sum - node->left->element);
+		}
+
+		if (node->right != nullptr)
+		{
+			nodeStack.push(node->right);
+			nodeSum.push(cur_sum - node->right->element);
+		}
+	}
+	return result;
+}
